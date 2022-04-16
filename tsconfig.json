@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "strict": true,
+      "allowJs": false,
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "target": "ES2018",
+      "forceConsistentCasingInFileNames": true,
+      "outDir": "dist",
+      "resolveJsonModule": true
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "ts-template",
+  "version": "0.1.0",
+  "author": "Michalis Kargakis",
+  "license": "GPL-3.0-only",
+  "private": true,
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "build": "yarn && rm -rf ./dist && tsc -p tsconfig.json && yarn copy",
+    "clean": "rm -rf ./node_modules ./dist",
+    "copy": "cp ./package.json ./yarn.lock ./dist",
+    "start": "node ./dist/main.js"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@ethersproject/bignumber": "^5.5.0",
+    "axios": "^0.26.1",
+    "dotenv": "^10.0.0",
+    "ethers-multicall": "^0.2.1",
+    "joi": "^17.5.0"
+  }
+}
