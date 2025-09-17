@@ -1,12 +1,18 @@
 {
-    "compilerOptions": {
-      "strict": true,
-      "allowJs": false,
-      "module": "commonjs",
-      "esModuleInterop": true,
-      "target": "ES2018",
-      "forceConsistentCasingInFileNames": true,
-      "outDir": "dist",
-      "resolveJsonModule": true
-    }
+  "compilerOptions": {
+    "target": "ES2021",
+    "lib": ["ES2021"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": ["node", "mocha", "chai"],
+    "skipLibCheck": false,
+    "allowJs": false
+  },
+  "include": ["src"],
+  "exclude": ["test"]
 }

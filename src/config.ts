@@ -1,34 +1,29 @@
-import dotenv from 'dotenv'
-import Joi from 'joi'
+import dotenv from "dotenv";
+import { z } from "zod";
 
-
-const schema: Joi.ObjectSchema = Joi.object({
+const schema = z.object({
   // TODO: Store config here
-})
+});
 
 export class ConfigService {
-    private config
+  private config: Record<string, string> = {};
 
-    constructor() {
-      const { parsed: parsedConfig, error: parseError } = dotenv.config()
-      if (parseError) {
-        console.log(`No .env file found, config.get will use process.env`)
-        return
-      }
-      const { error: validationError, value: config } = schema.validate(parsedConfig)
-      if (validationError) {
-        throw Error(`Failed to validate config: ${validationError}`)
-      }
-      this.config = config
+  constructor() {
+    const { parsed: parsedConfig, error: parseError } = dotenv.config();
+    if (parseError) {
+      console.log(`No .env file found, config.get will use process.env`);
+      return;
     }
+    const result = schema.safeParse(parsedConfig);
+    if (!result.success) {
+      throw Error(`Failed to validate config: ${result.error.message}`);
+    }
+    this.config = result.data as Record<string, string>;
+  }
 
-    get(key: string): string {
-      try {
-        return process.env[key] || this.config[key]
-      } catch {
-        return ''
-      }
-    }
+  get(key: string): string {
+    return process.env[key] ?? this.config[key] ?? "";
+  }
 }
 
-export const config = new ConfigService()
+export const config = new ConfigService();

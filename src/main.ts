@@ -1,8 +1,5 @@
-import Templatoor from './template'
-
+import { config } from "./config";
 (async () => {
-    const tmpl = new Templatoor()
-    await tmpl.init()
-
-    tmpl.run()
-})()
+  const nodeEnv = config.get("NODE_ENV") || "development";
+  console.log(`Config service example: NODE_ENV=${nodeEnv}`);
+})();

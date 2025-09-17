@@ -1,27 +1,45 @@
 {
   "name": "ts-template",
   "version": "0.1.0",
-  "author": "Michalis Kargakis",
-  "license": "GPL-3.0-only",
   "private": true,
-  "engines": {
-    "node": "16.x"
-  },
+  "license": "Apache-2.0",
+  "author": "Michalis Kargakis",
   "scripts": {
-    "build": "yarn && rm -rf ./dist && tsc -p tsconfig.json && yarn copy",
+    "build": "pnpm install && rm -rf ./dist && tsc -p tsconfig.json && pnpm run copy",
     "clean": "rm -rf ./node_modules ./dist",
-    "copy": "cp ./package.json ./yarn.lock ./dist",
-    "start": "node ./dist/main.js"
-  },
-  "devDependencies": {
-    "@types/node": "^17.0.8",
-    "typescript": "^4.5.4"
+    "copy": "cp ./package.json ./pnpm-lock.yaml ./dist",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky",
+    "start": "pnpm build && node ./dist/main.js",
+    "test": "ts-mocha -p tsconfig.json \"test/**/*.test.ts\""
   },
   "dependencies": {
-    "@ethersproject/bignumber": "^5.5.0",
-    "axios": "^0.26.1",
     "dotenv": "^10.0.0",
-    "ethers-multicall": "^0.2.1",
-    "joi": "^17.5.0"
+    "zod": "^4.1.9"
+  },
+  "devDependencies": {
+    "@types/chai": "^5.0.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.5.1",
+    "@typescript-eslint/eslint-plugin": "^8.44.0",
+    "@typescript-eslint/parser": "^8.44.0",
+    "chai": "^5.1.1",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "husky": "^9.1.7",
+    "mocha": "10.2.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-packagejson": "^2.5.19",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.0"
+  },
+  "packageManager": "pnpm@10.14.0",
+  "engines": {
+    "node": ">=18"
   }
 }

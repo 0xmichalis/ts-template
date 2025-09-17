@@ -1,16 +1,17 @@
-# Templatoor
+# ts-template
 
-A template for Typescript bots.
+A template for Typescript projects.
 
 ## Build
 
 ```
-yarn build
+pnpm build
 ```
 
 ## Run
 
 Update `.env` with the desired configuration, then run:
+
 ```
-yarn start
+pnpm start
 ```
