@@ -10,8 +10,8 @@
     "copy": "cp ./package.json ./pnpm-lock.yaml ./dist",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix --max-warnings 0",
     "prepare": "husky",
     "start": "pnpm build && node ./dist/main.js",
     "test": "ts-mocha -p tsconfig.json \"test/**/*.test.ts\""
