@@ -1,6 +1,6 @@
 import { expect } from "chai";
 
-import { ConfigService } from "../src/config";
+import { ConfigService } from "../src/config.js";
 
 describe("ConfigService", () => {
   it("returns empty string for unknown keys", () => {

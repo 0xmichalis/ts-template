@@ -1,21 +1,16 @@
-import tsParser from "@typescript-eslint/parser";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
-import importPlugin from "eslint-plugin-import";
+import { defineConfig } from "eslint/config";
 import configPrettier from "eslint-config-prettier";
+import importPlugin from "eslint-plugin-import";
+import tseslint from "typescript-eslint";
 
-export default [
+export default defineConfig(
   {
     ignores: ["dist", "build", "node_modules"],
   },
   {
     files: ["**/*.ts"],
-    languageOptions: {
-      parser: tsParser,
-      ecmaVersion: 2021,
-      sourceType: "module",
-    },
+    extends: [tseslint.configs.recommended],
     plugins: {
-      "@typescript-eslint": tsPlugin,
       import: importPlugin,
     },
     rules: {
@@ -48,5 +43,5 @@ export default [
       ],
     },
   },
-  configPrettier,
-];
+  configPrettier
+);

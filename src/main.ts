@@ -1,4 +1,4 @@
-import { config } from "./config";
+import { config } from "./config.js";
 (async () => {
   const nodeEnv = config.get("NODE_ENV") || "development";
   console.log(`Config service example: NODE_ENV=${nodeEnv}`);
