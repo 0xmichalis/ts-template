@@ -9,7 +9,9 @@ export class ConfigService {
   private config: Record<string, string> = {};
 
   constructor() {
-    const { parsed: parsedConfig, error: parseError } = dotenv.config();
+    const { parsed: parsedConfig, error: parseError } = dotenv.config({
+      quiet: true,
+    });
     if (parseError) {
       console.log(`No .env file found, config.get will use process.env`);
       return;

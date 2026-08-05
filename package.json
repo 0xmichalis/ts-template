@@ -4,8 +4,9 @@
   "private": true,
   "license": "Apache-2.0",
   "author": "Michalis Kargakis",
+  "type": "module",
   "scripts": {
-    "build": "pnpm install && rm -rf ./dist && tsc -p tsconfig.json && pnpm run copy",
+    "build": "rm -rf ./dist && tsc -p tsconfig.build.json && pnpm run copy",
     "clean": "rm -rf ./node_modules ./dist",
     "copy": "cp ./package.json ./pnpm-lock.yaml ./dist",
     "format": "prettier --check .",
@@ -14,32 +15,31 @@
     "lint:fix": "eslint . --fix --max-warnings 0",
     "prepare": "husky",
     "start": "pnpm build && node ./dist/main.js",
-    "test": "ts-mocha -p tsconfig.json \"test/**/*.test.ts\""
+    "test": "mocha --import=tsx \"test/**/*.test.ts\"",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "zod": "^4.1.9"
+    "dotenv": "^17.4.2",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/chai": "^5.0.1",
+    "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^24.5.1",
-    "@typescript-eslint/eslint-plugin": "^8.44.0",
-    "@typescript-eslint/parser": "^8.44.0",
-    "chai": "^5.1.1",
-    "eslint": "^9.35.0",
+    "@types/node": "^26.1.2",
+    "chai": "^6.2.2",
+    "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "husky": "^9.1.7",
-    "mocha": "10.2.0",
-    "prettier": "^3.6.2",
-    "prettier-plugin-packagejson": "^2.5.19",
-    "ts-mocha": "^10.0.0",
-    "typescript": "^5.9.2",
-    "typescript-eslint": "^8.44.0"
+    "mocha": "^11.8.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-packagejson": "^3.0.2",
+    "tsx": "^4.23.5",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.66.0"
   },
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@11.20.0",
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   }
 }

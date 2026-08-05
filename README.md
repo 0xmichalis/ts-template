@@ -8,6 +8,12 @@ A template for Typescript projects.
 pnpm build
 ```
 
+## Test
+
+```
+pnpm test
+```
+
 ## Run
 
 Update `.env` with the desired configuration, then run:
