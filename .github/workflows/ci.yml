@@ -90,5 +90,7 @@ jobs:
 
       - name: Vet dependencies
         uses: safedep/vet-action@v1
+        with:
+          policy: .github/vet/policy.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
