@@ -20,23 +20,23 @@
   },
   "dependencies": {
     "dotenv": "^17.4.2",
-    "zod": "^4.4.3"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^26.1.2",
-    "chai": "^6.2.2",
-    "eslint": "^10.8.0",
+    "@types/node": "^26.6.6",
+    "chai": "^6.3.0",
+    "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "husky": "^9.1.7",
     "mocha": "^11.8.0",
-    "prettier": "^3.9.6",
-    "prettier-plugin-packagejson": "^3.0.2",
-    "tsx": "^4.23.5",
+    "prettier": "^3.9.10",
+    "prettier-plugin-packagejson": "^3.0.3",
+    "tsx": "^4.23.15",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.66.0"
+    "typescript-eslint": "^8.72.1"
   },
   "packageManager": "pnpm@11.20.0",
   "engines": {
