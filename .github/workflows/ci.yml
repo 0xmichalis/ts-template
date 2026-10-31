@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Weekly run catches newly published advisories between pushes.
+  schedule:
+    - cron: "0 6 * * 1"
 
 permissions:
   contents: read
@@ -78,6 +81,9 @@ jobs:
 
       - name: Audit
         run: pnpm audit
+
+      - name: Verify registry signatures
+        run: pnpm audit signatures
 
   vet:
     runs-on: ubuntu-latest

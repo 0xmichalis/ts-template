@@ -4,3 +4,12 @@ overrides:
   diff@>=6.0.0 <8.0.3: ">=8.0.3"
   serialize-javascript@<=7.0.2: ">=7.0.3"
   serialize-javascript@>=5.0.0 <7.0.5: ">=7.0.5"
+auditConfig:
+  ignoreGhsas:
+    # glob AbortSignal cancellation bypass, fixed only in glob >=14.0.2. mocha
+    # (11.x and 12.x) depends on glob 10/13 and only globs local test files.
+    - GHSA-3g3m-2fjr-6pw4
+    # minimatch pattern amplification, fixed only in minimatch >=11.0.1. eslint
+    # (latest included) depends on minimatch 10 and matches patterns from its
+    # own config, not untrusted input.
+    - GHSA-g3hv-75wg-m249
